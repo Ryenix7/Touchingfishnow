@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>摸鱼高手</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="game-shell">
+    <header class="hud">
+      <div>分数：<span id="score">0</span></div>
+      <div>最高分：<span id="best-score">0</span></div>
+      <div>炸弹：<span id="bomb-count">0</span></div>
+      <button id="sound-toggle" type="button" class="mini-btn">🔊 音效开</button>
+    </header>
+    <div id="objective-bar" class="objective-bar">目标：准备中...</div>
+
+    <main class="stage-wrap">
+      <canvas id="game-canvas" width="960" height="540" aria-label="摸鱼高手游戏画布"></canvas>
+      <div id="message" class="message hidden"></div>
+      <div id="status-tip" class="status-tip hidden">按空格清空老板！</div>
+      <div id="pause-tip" class="status-tip hidden">已暂停，按 P 继续</div>
+      <div id="record-toast" class="record-toast hidden">新纪录！</div>
+    </main>
+
+    <div id="touch-controls" class="touch-controls hidden">
+      <button data-dir="w" type="button">▲</button>
+      <div class="touch-mid">
+        <button data-dir="a" type="button">◀</button>
+        <button data-dir="s" type="button">▼</button>
+        <button data-dir="d" type="button">▶</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="start-menu" class="overlay">
+    <div class="panel">
+      <h2>摸鱼高手</h2>
+      <p>WASD / 触控摇杆 控制大鱼，躲避老板追击。</p>
+      <p>P 键可暂停，炸弹后按空格清屏。</p>
+      <button id="start-btn" type="button">开始摸鱼</button>
+    </div>
+  </div>
+
+  <div id="overlay" class="overlay hidden">
+    <div class="panel">
+      <h2>游戏结束</h2>
+      <p>本局分数：<span id="final-score">0</span></p>
+      <p>历史最高：<span id="final-best-score">0</span></p>
+      <div class="actions">
+        <button id="revive-btn" type="button">看广告复活</button>
+        <button id="restart-btn" type="button">重新开始</button>
+      </div>
+      <small>复活仅可使用一次</small>
+    </div>
+  </div>
+
+  <div id="fake-ad" class="overlay hidden">
+    <div class="panel">
+      <h2>嫩咋不早说，咋俩某以后</h2>
+      <p id="ad-countdown">3 秒后可返回游戏</p>
+    </div>
+  </div>
+
+  <script src="./game.js"></script>
+</body>
+</html>
